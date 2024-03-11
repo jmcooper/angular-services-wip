@@ -1,0 +1,8 @@
+<div class="container">
+  <input class="search" placeholder="Search..." (keyup)="filter($event)" />
+  <ul class="products">
+    <li class="product-item" *ngFor="let product of getFilteredProducts()">
+      <bot-product-details [product]="product" (buy)="addToCart(product)"></bot-product-details>
+    </li>
+  </ul>
+</div>

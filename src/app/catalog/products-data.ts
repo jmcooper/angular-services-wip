@@ -1,4 +1,6 @@
-let products = [
+import { Product } from './product.model'
+
+export const productsArray: Product[] = [
   {
     id: 1,
     description:

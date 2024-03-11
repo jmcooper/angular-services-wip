@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../catalog/product.model';
+import { Product } from '../catalog/product.model';
 import { CartService } from './cart.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CartService } from './cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  private cart: IProduct[] = [];
+  private cart: Product[] = [];
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -28,11 +28,11 @@ export class CartComponent implements OnInit {
     }, 0);
   }
 
-  removeFromCart(product: IProduct) {
+  removeFromCart(product: Product) {
     this.cartService.remove(product);
   }
 
-  getImageUrl(product: IProduct) {
+  getImageUrl(product: Product) {
     if (!product) return '';
     return '/assets/images/robot-parts/' + product.imageName;
   }

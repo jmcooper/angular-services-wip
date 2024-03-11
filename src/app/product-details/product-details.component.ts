@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IProduct } from '../catalog/product.model';
+import { Product } from '../catalog/product.model';
 
 @Component({
   selector: 'bot-product-details',
@@ -7,15 +7,15 @@ import { IProduct } from '../catalog/product.model';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent {
-  @Input() product!: IProduct;
+  @Input() product!: Product;
   @Output() buy = new EventEmitter();
 
-  getImageUrl(product: IProduct) {
+  getImageUrl(product: Product) {
     if (!product) return '';
     return '/assets/images/robot-parts/' + product.imageName;
   }
 
-  buyButtonClicked(product: IProduct) {
+  buyButtonClicked(product: Product) {
     this.buy.emit();
   }
 }

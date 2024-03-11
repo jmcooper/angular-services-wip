@@ -2,25 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-import { IProduct } from '../catalog/product.model';
+import { Product } from '../catalog/product.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cart: BehaviorSubject<IProduct[]> = new BehaviorSubject<IProduct[]>([]);
+  private cart: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
   constructor(private http: HttpClient) {
-    this.http.get<IProduct[]>('/api/cart').subscribe({
+    this.http.get<Product[]>('/api/cart').subscribe({
       next: (cart) => this.cart.next(cart),
     });
   }
 
-  getCart(): Observable<IProduct[]> {
+  getCart(): Observable<Product[]> {
     return this.cart.asObservable();
   }
 
-  add(product: IProduct) {
+  add(product: Product) {
     const newCart = [...this.cart.getValue(), product];
     this.cart.next(newCart);
     this.http.post('/api/cart', newCart).subscribe(() => {
@@ -28,7 +28,7 @@ export class CartService {
     });
   }
 
-  remove(product: IProduct) {
+  remove(product: Product) {
     let newCart = this.cart.getValue().filter((i) => i !== product);
     this.cart.next(newCart);
     this.http.post('/api/cart', newCart).subscribe(() => {

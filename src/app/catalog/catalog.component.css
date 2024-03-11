@@ -8,18 +8,22 @@
 }
 
 .filters {
+  background-color: #F9F9FD;
+  font-size: 20px;
+  text-align: center;
   display: flex;
-  justify-content: space-between;
-  padding: 25px 200px;
+  flex-direction: column;
+  justify-content: start;
+  padding: 25px 50px;
 }
 
-.filters button {
-  width: 100px;
+.filters .button {
+  width: 80px;
+  margin-top: 20px;
 }
 
 .products {
-  margin: 0 100px;
-  border-top: 2px solid #999;
+  margin: 0 100px 0 0;
 }
 
 .product-item {

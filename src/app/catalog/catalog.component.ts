@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { IProduct } from './product.model';
+import { Product } from './product.model';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from './product.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,7 +29,7 @@ export class CatalogComponent {
     })
   }
 
-  addToCart(product: IProduct) {
+  addToCart(product: Product) {
     this.cartSvc.add(product);
     this.router.navigate(['/cart']);
   }
