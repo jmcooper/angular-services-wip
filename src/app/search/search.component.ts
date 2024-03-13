@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../catalog/product.model';
-import { CartService } from '../cart/cart.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { productsArray } from '../catalog/products-data'
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'bot-search',
@@ -12,23 +11,17 @@ import { productsArray } from '../catalog/products-data'
 export class SearchComponent {
   products: Product[] = [...productsArray];
   searchTerm: string = '';
+  cart: Product[] = [];
 
-  log(event: any) {
-    console.log(event)
-  }
-  constructor(
-    private cartSvc: CartService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.products = [...productsArray];
   }
 
   addToCart(product: Product) {
-    this.cartSvc.add(product);
-    this.router.navigate(['/cart']);
+    this.cartService.add(product);
+    // this.cart.push(product);
   }
 
   filter(event: Event) {

@@ -79,7 +79,6 @@ export const productsArray: Product[] = [
     price: 285,
     discount: 0,
   },
-
   {
     id: 4,
     description: "A simple single-eyed head -- simple and inexpensive.",

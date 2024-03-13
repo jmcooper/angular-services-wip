@@ -8,13 +8,11 @@ import { CartService } from './cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  private cart: Product[] = [];
+  cart: Product[] = [];
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartService.getCart().subscribe({
-      next: (cart) => (this.cart = cart),
-    });
+    this.cart = this.cartService.cart;
   }
 
   get cartItems() {
@@ -30,6 +28,7 @@ export class CartComponent implements OnInit {
 
   removeFromCart(product: Product) {
     this.cartService.remove(product);
+    // this.cart = this.cart.filter((i) => i !== product);
   }
 
   getImageUrl(product: Product) {

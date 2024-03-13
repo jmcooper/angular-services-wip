@@ -1,33 +1,28 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable } from 'rxjs';
-
+import { Injectable, Signal, WritableSignal, signal } from '@angular/core';
 import { IUser, IUserCredentials } from './user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private user: BehaviorSubject<IUser | null>;
+  private user: WritableSignal<IUser | null> = signal(null);
 
-  constructor(private http: HttpClient) {
-    this.user = new BehaviorSubject<IUser | null>(null);
+  constructor() { }
+
+  getUser(): Signal<IUser | null> {
+    return this.user.asReadonly();
   }
 
-  getUser(): Observable<IUser | null> {
-    return this.user;
-  }
-
-  signIn(credentials: IUserCredentials): Observable<IUser> {
-    return this.http
-      .post<IUser>('/api/sign-in', credentials)
-      .pipe(map((user: IUser) => {
-        this.user.next(user);
-        return user;
-      }));
+  signIn(credentials: IUserCredentials) {
+    if (credentials.email && credentials.password)
+      this.user.set({
+        firstName: "Jim",
+        lastName: "Cooper",
+        email: "jim@joesrobotshop.com",
+      });
   }
 
   signOut() {
-    this.user.next(null);
+    this.user.set(null);
   }
 }
