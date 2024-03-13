@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Product } from './product.model';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from './product.service';
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent {
-  products: any;
+  products = this.productSvc.products;
   filter: string = '';
 
   constructor(
@@ -21,9 +21,7 @@ export class CatalogComponent {
   ) { }
 
   ngOnInit() {
-    this.productSvc.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    this.productSvc.fetchProducts();
     this.route.queryParams.subscribe((params) => {
       this.filter = params['filter'] ?? '';
     })
@@ -36,8 +34,8 @@ export class CatalogComponent {
 
   getFilteredProducts() {
     return this.filter === ''
-      ? this.products
-      : this.products.filter(
+      ? this.products()
+      : this.products().filter(
         (product: any) => product.category === this.filter
       );
   }
