@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 import { Product } from '../catalog/product.model';
 
@@ -8,16 +8,12 @@ import { Product } from '../catalog/product.model';
   providedIn: 'root',
 })
 export class CartService {
-  private cart: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  cart: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
   constructor(private http: HttpClient) {
     this.http.get<Product[]>('/api/cart').subscribe({
       next: (cart) => this.cart.next(cart),
     });
-  }
-
-  getCart(): Observable<Product[]> {
-    return this.cart.asObservable();
   }
 
   add(product: Product) {
@@ -34,5 +30,13 @@ export class CartService {
     this.http.post('/api/cart', newCart).subscribe(() => {
       console.log('removed ' + product.name + ' from cart!');
     });
+  }
+
+  get cartTotal() {
+    const accumulator = (acc: number, next: Product) => {
+      let discount = next.discount && next.discount > 0 ? 1 - next.discount : 1;
+      return acc + next.price * discount;
+    };
+    return this.cart.pipe(map((products: Product[]) => products.reduce(accumulator, 0)));
   }
 }

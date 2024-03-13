@@ -1,11 +1,11 @@
 <div class="container">
   <h1 class="header">Your Cart</h1>
 
-  <div class="empty-cart" *ngIf="cartItems.length === 0">
+  <div class="empty-cart" *ngIf="(cart | async)!.length===0">
     You have no items in your cart
   </div>
-  <ul class="cart" *ngIf="cartItems.length > 0">
-    <li class="cart-item" *ngFor="let product of cartItems">
+  <ul class="cart" *ngIf="(cart | async)!.length > 0">
+    <li class="cart-item" *ngFor="let product of cart | async">
       <div class="product">
         <div class="product-details">
           <img [src]="getImageUrl(product)" [alt]="product.name" />
@@ -27,5 +27,5 @@
       </div>
     </li>
   </ul>
-  <div class="total">Total: {{ cartTotal | currency }}</div>
+  <div class="total">Total: {{ cartTotal | async |currency }}</div>
 </div>
