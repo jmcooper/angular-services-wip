@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Product } from './product.model';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from './product.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bot-catalog',
@@ -16,7 +16,6 @@ export class CatalogComponent {
   constructor(
     private cartSvc: CartService,
     private productSvc: ProductService,
-    private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -31,7 +30,6 @@ export class CatalogComponent {
 
   addToCart(product: Product) {
     this.cartSvc.add(product);
-    this.router.navigate(['/cart']);
   }
 
   getFilteredProducts() {
