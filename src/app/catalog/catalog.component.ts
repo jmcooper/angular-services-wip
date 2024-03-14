@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from './product.model';
 import { CartService } from '../cart/cart.service';
 import { ProductService } from './product.service';
-import { ActivatedRoute } from '@angular/router';
+import { productsArray } from './products-data';
 
 @Component({
   selector: 'bot-catalog',
@@ -10,33 +10,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent {
-  products: any;
-  filter: string = '';
+  products: Product[] = productsArray;
 
   constructor(
     private cartSvc: CartService,
     private productSvc: ProductService,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.productSvc.getProducts().subscribe((products) => {
-      this.products = products;
-    });
-    this.route.queryParams.subscribe((params) => {
-      this.filter = params['filter'] ?? '';
-    })
   }
 
   addToCart(product: Product) {
     this.cartSvc.add(product);
-  }
-
-  getFilteredProducts() {
-    return this.filter === ''
-      ? this.products
-      : this.products.filter(
-        (product: any) => product.category === this.filter
-      );
   }
 }

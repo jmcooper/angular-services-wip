@@ -18,8 +18,6 @@ export class SearchComponent {
   }
   constructor(
     private cartSvc: CartService,
-    private router: Router,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -28,7 +26,6 @@ export class SearchComponent {
 
   addToCart(product: Product) {
     this.cartSvc.add(product);
-    this.router.navigate(['/cart']);
   }
 
   filter(event: Event) {
