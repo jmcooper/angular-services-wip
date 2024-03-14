@@ -6,7 +6,7 @@ import { Product } from '../catalog/product.model';
   providedIn: 'root',
 })
 export class CartService {
-  private cart: Product[] = [];
+  cart: Product[] = [];
 
   getCart(): Product[] {
     return this.cart;
