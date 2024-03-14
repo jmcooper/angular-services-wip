@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Product } from '../catalog/product.model';
-import { CartService } from '../cart/cart.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { productsArray } from '../catalog/products-data'
 
 @Component({
@@ -12,20 +10,16 @@ import { productsArray } from '../catalog/products-data'
 export class SearchComponent {
   products: Product[] = [...productsArray];
   searchTerm: string = '';
+  cart: Product[] = [];
 
-  log(event: any) {
-    console.log(event)
-  }
-  constructor(
-    private cartSvc: CartService,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
     this.products = [...productsArray];
   }
 
   addToCart(product: Product) {
-    this.cartSvc.add(product);
+    this.cart.push(product);
   }
 
   filter(event: Event) {
