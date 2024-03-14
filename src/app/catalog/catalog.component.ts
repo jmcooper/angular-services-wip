@@ -24,12 +24,4 @@ export class CatalogComponent {
   addToCart(product: Product) {
     this.cartSvc.add(product);
   }
-
-  getFilteredProducts() {
-    return this.filter === ''
-      ? this.products
-      : this.products.filter(
-        (product: any) => product.category === this.filter
-      );
-  }
 }
