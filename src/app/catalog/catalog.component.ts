@@ -13,15 +13,16 @@ export class CatalogComponent {
   filter: string = '';
   cart: Product[] = [];
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartSvc: CartService,
+  ) { }
 
   ngOnInit() {
     this.products = [...productsArray];
   }
 
   addToCart(product: Product) {
-    this.cartService.add(product);
-    // this.cart.push(product);
+    this.cartSvc.add(product);
   }
 
   getFilteredProducts() {
