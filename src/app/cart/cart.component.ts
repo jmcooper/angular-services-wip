@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../catalog/product.model';
 import { CartService } from './cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bot-cart',
@@ -8,10 +9,8 @@ import { CartService } from './cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  cart: Product[] = this.cartService.cart;
-  get cartTotal() {
-    return this.cartService.cartTotal;
-  }
+  cart: Observable<Product[]> = this.cartService.cart;
+  cartTotal = this.cartService.cartTotal;
 
   constructor(private cartService: CartService) { }
 
