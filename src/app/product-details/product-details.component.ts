@@ -8,14 +8,9 @@ import { Product } from '../catalog/product.model';
 })
 export class ProductDetailsComponent {
   @Input() product!: Product;
-  @Output() buy = new EventEmitter();
 
   getImageUrl(product: Product) {
     if (!product) return '';
     return '/assets/images/robot-parts/' + product.imageName;
-  }
-
-  buyButtonClicked(product: Product) {
-    this.buy.emit();
   }
 }
