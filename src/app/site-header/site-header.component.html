@@ -5,6 +5,7 @@
     <a routerLink="/search" routerLinkActive="active">Search</a>
     <div class="cart">
       <a routerLink="/cart" routerLinkActive="active">Cart</a>
+      <span class="cartCount">{{cart.length}}</span>
     </div>
   </div>
   <div class="right" *ngIf="!user">
