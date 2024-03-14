@@ -11,7 +11,6 @@ import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import { TemplateFormControlsComponent } from './user/template-form-controls/template-form-controls.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { TemplateFormControlsComponent } from './user/template-form-controls/tem
     CartComponent,
     SearchComponent,
     SignInComponent,
-    TemplateFormControlsComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
