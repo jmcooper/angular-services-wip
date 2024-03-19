@@ -5,6 +5,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { SearchComponent } from './search/search.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 
+
 const routes: Routes = [
   { path: 'catalog', component: CatalogComponent, title: "Catalog - Joe's Robot Shop" },
   { path: 'search', component: SearchComponent, title: "Search - Joe's Robot Shop" },
