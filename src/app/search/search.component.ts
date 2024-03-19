@@ -11,7 +11,6 @@ import { CartService } from '../cart/cart.service';
 export class SearchComponent {
   products: Product[] = [...productsArray];
   searchTerm: string = '';
-  cart: Product[] = [];
 
   constructor(private cartService: CartService) { }
 
@@ -21,7 +20,6 @@ export class SearchComponent {
 
   addToCart(product: Product) {
     this.cartService.add(product);
-    // this.cart.push(product);
   }
 
   filter(event: Event) {

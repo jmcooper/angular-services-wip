@@ -8,10 +8,6 @@ import { Product } from '../catalog/product.model';
 export class CartService {
   cart: Product[] = [];
 
-  getCart(): Product[] {
-    return this.cart;
-  }
-
   add(product: Product) {
     this.cart.push(product);
   }

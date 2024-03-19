@@ -11,7 +11,6 @@ import { CartService } from '../cart/cart.service';
 export class CatalogComponent {
   products: any;
   filter: string = '';
-  cart: Product[] = [];
 
   constructor(
     private cartSvc: CartService,
