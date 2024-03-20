@@ -4,7 +4,13 @@ import { Product } from './product.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
+  private products: Product[] = [];
+
   getProducts(): Product[] {
-    return productsArray;
+    return this.products;
+  }
+
+  refreshProducts() {
+    this.products = productsArray;
   }
 }
