@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { productsArray } from './products-data';
 import { Product } from './product.model';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
-  private products: Product[] = [];
+  private products: Subject<Product[]> = new Subject();
 
-  getProducts(): Product[] {
+  getProducts(): Observable<Product[]> {
     return this.products;
   }
 
   refreshProducts() {
-    this.products = productsArray;
+    console.log(this.products)
+    this.products.next(productsArray);
   }
 }

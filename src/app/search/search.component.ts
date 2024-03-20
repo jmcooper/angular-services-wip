@@ -16,7 +16,8 @@ export class SearchComponent {
   constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
+    this.productsService.getProducts().subscribe((products) => this.products = products);
+    setTimeout(() => this.productsService.refreshProducts(), 3000);
   }
 
   addToCart(product: Product) {
