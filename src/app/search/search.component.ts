@@ -17,7 +17,6 @@ export class SearchComponent {
 
   ngOnInit() {
     this.productsService.getProducts().subscribe((products) => this.products = products);
-    setTimeout(() => this.productsService.refreshProducts(), 500);
   }
 
   addToCart(product: Product) {
