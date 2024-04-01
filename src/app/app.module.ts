@@ -27,7 +27,9 @@ import { CART_SERVICE_TOKEN, CartService } from './cart/cart.service';
   providers: [
     {
       provide: CART_SERVICE_TOKEN,
-      useClass: CartService,
+      useFactory: () => {
+        return new CartService();
+      },
     },
   ],
   bootstrap: [AppComponent],
