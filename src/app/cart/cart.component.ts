@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Product } from '../catalog/product.model';
-import { CartService } from './cart.service';
+import { CART_SERVICE_TOKEN, CartService } from './cart.service';
 
 @Component({
   selector: 'bot-cart',
@@ -9,7 +9,7 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private cartService: CartService) { }
+  constructor(@Inject(CART_SERVICE_TOKEN) private cartService: CartService) { }
 
   ngOnInit() { }
 
