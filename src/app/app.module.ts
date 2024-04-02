@@ -10,7 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import { CartService } from './cart/cart.service';
+import { CART_OPTIONS_TOKEN, CartService } from './cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,16 @@ import { CartService } from './cart/cart.service';
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
+    // {
+    //   provide: CartService,
+    //   useFactory: () => {
+    //     return new CartService();
+    //   },
+    // },
     {
-      provide: CartService,
-      useFactory: () => {
-        return new CartService();
-      },
-    },
+      provide: CART_OPTIONS_TOKEN,
+      useValue: { persistenceType: 'local', persistenceKey: 'cart' }
+    }
   ],
   bootstrap: [AppComponent],
 })
