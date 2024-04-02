@@ -9,7 +9,7 @@ import { CART_SERVICE_TOKEN, CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(@Inject(CART_SERVICE_TOKEN) private cartService: CartService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() { }
 
