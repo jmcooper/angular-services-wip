@@ -26,7 +26,9 @@ import { CartService } from './cart/cart.service';
   providers: [
     {
       provide: CartService,
-      useClass: CartService,
+      useFactory: () => {
+        return new CartService();
+      },
     },
   ],
   bootstrap: [AppComponent],
