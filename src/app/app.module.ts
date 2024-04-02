@@ -10,7 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import { CART_SERVICE_TOKEN, CartService } from './cart/cart.service';
+import { CartService } from './cart/cart.service';
 
 @NgModule({
   declarations: [
