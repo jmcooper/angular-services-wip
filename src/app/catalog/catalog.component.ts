@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Product } from './product.model';
 import { ProductsService } from './products.service';
-import { CART_SERVICE_TOKEN, CartService } from '../cart/cart.service';
+import { CartService } from '../cart/cart.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ export class CatalogComponent {
 
   constructor(
     private productsService: ProductsService,
-    @Inject(CART_SERVICE_TOKEN) private cartService: CartService) { }
+    private cartService: CartService) { }
 
   addToCart(product: Product) {
     this.cartService.add(product);
