@@ -15,7 +15,7 @@ export class CatalogComponent {
 
   constructor(
     private productsService: ProductsService,
-    private cartService: CartService) { }
+    @Inject(CART_SERVICE_TOKEN) private cartService: CartService) { }
 
   addToCart(product: Product) {
     this.cartService.add(product);

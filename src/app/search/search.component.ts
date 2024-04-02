@@ -15,7 +15,7 @@ export class SearchComponent {
 
   constructor(
     private productsService: ProductsService,
-    private cartService: CartService) { }
+    @Inject(CART_SERVICE_TOKEN) private cartService: CartService) { }
 
   ngOnInit() {
     this.productsService.getProducts().subscribe((products) => this.products = products);
