@@ -11,6 +11,8 @@ import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { CART_OPTIONS_TOKEN, CartService } from './cart/cart.service';
+import { UserModule } from './user/user.module';
+import { UserRoutingModule } from './user/user-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { CART_OPTIONS_TOKEN, CartService } from './cart/cart.service';
     SearchComponent,
     SignInComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, UserModule, UserRoutingModule],
   providers: [
     // {
     //   provide: CartService,

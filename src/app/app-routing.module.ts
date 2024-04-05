@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'catalog', component: CatalogComponent, title: "Catalog - Joe's Robot Shop" },
   { path: 'search', component: SearchComponent, title: "Search - Joe's Robot Shop" },
   { path: 'cart', component: CartComponent, title: "Cart - Joe's Robot Shop" },
-  { path: 'sign-in', component: SignInComponent },
+  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   { path: '', redirectTo: '/catalog', pathMatch: 'full' },
 ];
 
