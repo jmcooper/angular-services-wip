@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CART_OPTIONS_TOKEN } from 'src/app/core/cart.service';
-import { SharedModule } from '../shared/shared.module';
+import { CART_OPTIONS_TOKEN } from '@core/cart.service';
+import { SharedModule } from '@shared/shared.module';
 import { SquadRoutingModule } from './squad-routing.module';
 import { SquadCatalogComponent } from './squad-catalog/squad-catalog.component';
 

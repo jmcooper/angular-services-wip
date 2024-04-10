@@ -1,5 +1,5 @@
 import { Injectable, Signal } from '@angular/core';
-import { Product } from '../shared/product.model';
+import { Product } from '@shared/product.model';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

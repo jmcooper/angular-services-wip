@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/app/shared/product.model';
+import { Product } from '@shared/product.model';
 import { ProductsService } from './products.service';
-import { CartService } from 'src/app/core/cart.service';
+import { CartService } from '@core/cart.service';
 import { Observable } from 'rxjs';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Inject, Injectable, InjectionToken, computed, signal } from "@angular/core";
-import { Product } from "src/app/shared/product.model";
+import { Product } from "@shared/product.model";
 
 export const CART_OPTIONS_TOKEN = new InjectionToken<CartOptions>("CART_OPTIONS");
 

@@ -1,4 +1,4 @@
-import { Product } from "src/app/shared/product.model";
+import { Product } from "@shared/product.model";
 
 export const engineers: Product[] = [
   {

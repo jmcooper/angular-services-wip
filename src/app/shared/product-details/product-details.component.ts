@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/shared/product.model';
+import { Product } from '@shared/product.model';
 
 @Component({
   selector: 'bot-product-details',

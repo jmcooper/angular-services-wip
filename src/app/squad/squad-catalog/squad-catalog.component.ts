@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/app/shared/product.model';
-import { CartService } from 'src/app/core/cart.service';
+import { Product } from '@shared/product.model';
+import { CartService } from '@core/cart.service';
 import { engineers } from './engineers';
 
 @Component({

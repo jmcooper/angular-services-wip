@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SquadCatalogComponent } from './squad-catalog/squad-catalog.component';
-import { CartComponent } from 'src/app/shared/cart/cart.component';
-import { SharedModule } from '../shared/shared.module';
+import { CartComponent } from '@shared/cart/cart.component';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Routes = [
   { path: 'bot-squad', component: SquadCatalogComponent },
