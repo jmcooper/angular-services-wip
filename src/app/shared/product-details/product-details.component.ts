@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../catalog/product.model';
+import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/shared/product.model';
 
 @Component({
   selector: 'bot-product-details',

@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
-import { Product } from '../catalog/product.model';
-import { ProductsService } from '../catalog/products.service';
-import { CartService } from '../cart/cart.service';
+import { Component } from '@angular/core';
+import { Product } from 'src/app/shared/product.model';
+import { ProductsService } from '../products.service';
+import { CartService } from 'src/app/core/cart.service';
 
 @Component({
   selector: 'bot-search',
