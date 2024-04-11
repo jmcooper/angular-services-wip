@@ -3,21 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { CatalogComponent } from './catalog/catalog.component';
 import { SiteHeaderComponent } from '@core/site-header/site-header.component';
-import { SearchComponent } from './catalog/search/search.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CART_OPTIONS_TOKEN } from '@core/cart.service';
 import { SharedModule } from '@shared/shared.module';
+import { CatalogModule } from './catalog/catalog.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogComponent,
     SiteHeaderComponent,
-    SearchComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, SharedModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, SharedModule, CatalogModule],
   providers: [
     // {
     //   provide: CartService,
@@ -25,10 +21,6 @@ import { SharedModule } from '@shared/shared.module';
     //     return new CartService();
     //   },
     // },
-    {
-      provide: CART_OPTIONS_TOKEN,
-      useValue: { persistenceType: 'local', persistenceKey: 'cart' }
-    }
   ],
   bootstrap: [AppComponent],
 })
