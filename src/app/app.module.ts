@@ -5,12 +5,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CatalogComponent } from './catalog/catalog.component';
-import { SiteHeaderComponent } from './site-header/site-header.component';
+import { SiteHeaderComponent } from '@core/site-header/site-header.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SignInComponent } from './user/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     ProductDetailsComponent,
     CartComponent,
     SearchComponent,
-    SignInComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],

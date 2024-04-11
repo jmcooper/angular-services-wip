@@ -9,7 +9,7 @@ import { productsArray } from './products-data';
 })
 export class CatalogComponent {
   products: Product[] = productsArray;
-  cart: Product[] = [];
+  private cart: Product[] = [];
 
   constructor() { }
 
