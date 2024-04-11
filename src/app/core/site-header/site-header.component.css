@@ -48,7 +48,7 @@
 .right {
   display: flex;
   align-items: center;
-  margin-right: 25px;
+  margin-right: 50px;
 }
 
 .right * {

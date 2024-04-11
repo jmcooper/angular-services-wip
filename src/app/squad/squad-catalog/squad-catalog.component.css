@@ -7,22 +7,22 @@
   flex-direction: column;
 }
 
-.filters {
-  background-color: #F9F9FD;
-  font-size: 20px;
+.title {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 25px 50px;
+  font-size: 32px;
+  margin-top: 25px;
 }
 
-.filters .button {
-  width: 80px;
-  margin-top: 20px;
+.subtitle {
+  text-align: center;
+  color: #999;
+  font-size: 22px;
+  margin: 5px 0 25px 0;
+
 }
 
 .products {
+  border-top: 2px solid #999;
   margin: 0 100px;
 }
 
