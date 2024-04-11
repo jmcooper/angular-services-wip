@@ -64,7 +64,7 @@
               "browserTarget": "joes-robot-shop:build:production"
             },
             "development": {
-              "browserTarget": "joes-robot-shop:build:development",
+              "browserTarget": "joes-robot-shop:build:development"
             }
           },
           "defaultConfiguration": "development"
