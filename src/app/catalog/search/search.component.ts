@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from '../catalog/product.model';
-import { productsArray } from '../catalog/products-data'
+import { Product } from '../product.model';
+import { productsArray } from '../products-data'
 
 @Component({
   selector: 'bot-search',

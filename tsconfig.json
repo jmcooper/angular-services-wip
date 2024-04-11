@@ -4,6 +4,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@catalog/*": [
+        "src/app/catalog/*"
+      ],
       "@core/*": [
         "src/app/core/*"
       ],

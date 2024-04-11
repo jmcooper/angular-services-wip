@@ -4,23 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { CatalogComponent } from './catalog/catalog.component';
 import { SiteHeaderComponent } from '@core/site-header/site-header.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
-import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CatalogModule } from '@catalog/catalog.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogComponent,
     SiteHeaderComponent,
-    ProductDetailsComponent,
-    CartComponent,
-    SearchComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, CatalogModule],
   providers: [],
   bootstrap: [AppComponent],
 })
