@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { SiteHeaderComponent } from '@core/site-header/site-header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CatalogModule } from '@catalog/catalog.module';
-import { CART_SERVICE_TOKEN, CartService } from '@catalog/cart.service';
+import { CartService } from '@catalog/cart.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { CART_SERVICE_TOKEN, CartService } from '@catalog/cart.service';
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, CatalogModule],
   providers: [{
-    provide: CART_SERVICE_TOKEN,
+    provide: CartService,
     useClass: CartService
   }],
   bootstrap: [AppComponent],
