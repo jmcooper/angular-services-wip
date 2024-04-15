@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductsService } from '@catalog/products.service';
 import { CartService } from '@catalog/cart.service';
@@ -8,14 +8,15 @@ import { CartService } from '@catalog/cart.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   products: Product[] = [];
   searchTerm: string = '';
 
   constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit() {
-    this.products = this.productsService.getProducts();
+    this.productsService.getProducts().subscribe((products) => this.products = products);
+    setTimeout(() => this.productsService.refreshProducts(), 200);
   }
 
   addToCart(product: Product) {
