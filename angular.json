@@ -65,6 +65,7 @@
             },
             "development": {
               "browserTarget": "joes-robot-shop:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
